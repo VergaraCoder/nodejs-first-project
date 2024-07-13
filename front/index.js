@@ -1,11 +1,11 @@
 const $button = document.querySelector(".send");
-const $inputName = docuemnt.querySelector(".name");
-const $inputEmail = docuemnt.querySelector(".email");
-const $inputAge = docuemnt.querySelector(".age");
+const $inputName = document.querySelector(".name");
+const $inputEmail = document.querySelector(".email");
+const $inputAge = document.querySelector(".age");
 
 async function enviar(url, data) {
   try {
-    const request = await fetch(`${url}/tasks`, {
+    const request = await fetch(`${url}tasks`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,9 +53,10 @@ async function eliminar(url, data) {
   } catch (err) {}
 }
 
-const URLbase = "http://localhost:3000/";
+const URLbase = "http://localhost:4000/";
 
-$button.addEventListener("click", async () => {
+$button.addEventListener("click", async (e) => {
+  e.preventDefault();
   const data = {
     name: $inputName.value,
     email: $inputEmail.value,
